@@ -1,12 +1,12 @@
 workflows:
-  android-workflow:
-    name: Android Build
+  web-workflow:
+    name: Web Deploy
     max_build_duration: 60
-    instance_type: mac_mini_m1
     scripts:
       - name: Install dependencies
         script: npm install
-      - name: Build Android APK
-        script: cd android && ./gradlew assembleRelease
+      - name: Build Web App
+        script: npm run build
     artifacts:
-      - android/app/build/outputs/apk/**/*.apk
+      - build/**
+      - dist/**
